@@ -1,0 +1,39 @@
+{% extends 'admin/base-admin.html.twig' %}
+
+{% block title %}Tags index{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Tags index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>ImageName</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tag in tags %}
+            <tr>
+                <td>{{ tag.id }}</td>
+                <td>{{ tag.name }}</td>
+                <td>{{ tag.description }}</td>
+                <td>{{ tag.imageName }}</td>
+                <td>
+                    <a href="{{ path('app_admin_tags_show', {'id': tag.id}) }}">show</a>
+                    <a href="{{ path('app_admin_tags_edit', {'id': tag.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_tags_new') }}">Create new</a>
+{% endblock %}

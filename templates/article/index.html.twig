@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+    <div class="hero__ctn">
+        <h1 class="hero__title">{{ article.title }}</h1>
+        <div>
+            <img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="hero__img">
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+
+{% block body %}
+    <div class="hero__ctn">
+        <h1 class="hero__title">Catégorie {{ category.name }}</h1>
+        <div>
+            <img src="{{ vich_uploader_asset(category, 'imageFile') }}" class="hero__img">
+        </div>
+    </div>
+    <section class="container mt-5">
+        <p class="description">{{ category.description }}</p>
+    </section>
+{% endblock %}

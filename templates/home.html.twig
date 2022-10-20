@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="recent wrapper-90 mt-100">
+        <div class="recent__col">
+            <div class="recent__img-ctn-left mb-3">
+                <img src="{{ vich_uploader_asset(lastArticles[0], 'imageFile') }}" alt="">
+            </div>
+            <h2><a href="{{ path('app_article', {'slug': lastArticles[0].slug })}}">{{ lastArticles[0].title }}</a></h2>
+            <p>{{ lastArticles[0].description }}</p>
+        </div>
+        <div class="recent__col">
+            {% for lastArticle in lastArticles|slice(1, 4) %}
+                <div class="recent__right-row">
+                    <div class="recent__img-ctn-right mb-3">
+                        <img src="{{ vich_uploader_asset(lastArticle, 'imageFile') }}" alt="">
+                    </div>
+                    <div>
+                        <div>
+                            <h2><a href="{{ path('app_article', {'slug': lastArticle.slug })}}">{{ lastArticle.title }}</a></h2>
+                        </div>
+{#                        <div>{{ lastArticle.description }}</div>#}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
